@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem 18rem;
+}
+
+.heading h1 {
+    font-size: 6rem;
+    font-family: 'Noto Serif', serif;
+}
+
+.heading p {
+    font-size: 3rem;
+    font-family: 'Kanit', sans-serif;
+}
+
+.headimg img {
+    width: 35vw;
+}
+
+.category {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cats {
+    margin: 1rem;
+    background-color: #00539C;
+    color: #EEA47F;
+    padding: .5rem 2rem;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.cats:hover {
+    opacity: .8;
+}
+
+.cats p {
+    margin-bottom: 0rem;
+}
+
+.cars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.items {
+    margin: 1rem 2rem;
+}

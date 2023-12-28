@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+    <form action="" method="POST" style="width: 50%; margin: auto" class="pt-4">
+        <h1>{{ type }} Page</h1>
+        <a class="btn btn-warning" href="{% url 'Home' %}">Change Password</a>
+        {% csrf_token %}
+        {{ form | crispy }}
+        <button class="btn btn-warning">Submit</button>
+    </form>
+    <div class="mt-4 mb-4">
+        <h1 class="mb-4">
+            <center>Car You Bought</center>
+        </h1>
+        <div class="container">
+            <div class="row justify-content-center">
+                {% for c in cars %}
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        {% for car in c %}
+                            <div class="card items" style="width: 100%;">
+                                <img src="{{ car.img.url }}"
+                                     class="card-img-top"
+                                     alt="..."
+                                     style="height: 190px">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{ car.name }}</h5>
+                                    <p class="card-text">
+                                        <b>Price</b>: ${{ car.price }}
+                                    </p>
+                                    <p class="card-text">
+                                        <b>Brand</b>: {{ car.brand_name }}
+                                    </p>
+                                    <a href="{% url 'Carinfo' car.id %}" class="btn btn-primary">View Details</a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% block design %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="hero">
+        <div class="headimg">
+            <img src="{% static 'audi r8.png' %}" alt="hi">
+        </div>
+        <div class="heading">
+            <h1>Car Sale</h1>
+            <p>Buy the best car in low price</p>
+        </div>
+    </div>
+    <div class="carlist">
+        <div class="category">
+            {% for brand in brands %}
+                <a href="{% url 'CategoryWise' brand.slug %}">
+                    <div class="cats">
+                        <p>{{ brand.brand_name }}</p>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+        <div class="total">
+            <p class="btn btn-warning" style="margin-left: 1rem; cursor: auto">Total Car Found: {{ cars | length }}</p>
+        </div>
+        <div class="cars">
+            {% for car in cars %}
+                <div class="card items" style="width: 18rem;">
+                    <img src="{{ car.img.url }}"
+                         class="card-img-top"
+                         alt="..."
+                         style="height: 190px">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ car.name }}</h5>
+                        <p class="card-text">
+                            <b>Price</b>: ${{ car.price }}
+                        </p>
+                        <p class="card-text">
+                            <b>Brand</b>: {{ car.brand_name }}
+                        </p>
+                        <a href="{% url 'Carinfo' car.id %}" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

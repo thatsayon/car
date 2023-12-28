@@ -1,0 +1,13 @@
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.hero img{
+    width: 50vw;
+}
+
+.hero:nth-child(2){
+    margin-right: 8rem;
+}
